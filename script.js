@@ -1,6 +1,6 @@
-let mainTimer = 1800; // Set the initial main timer to 10 minutes (600 seconds)
-let breakTimer = 900; // Set the initial break timer to 15 minutes (900 seconds)
-let isMainTimer = true; // Track if it's the main timer or break timer
+let mainTimer = 1800; // Set the initial main timer to 10 minutes 
+let breakTimer = 900; // Set the initial break timer to 15 minutes 
+let isMainTimer = true; 
 const countdown = document.getElementById('countdown');
 const timerEnd = new Audio('timerend.mp3');
 let isPaused = true;
@@ -17,7 +17,7 @@ function startTimer() {
     }
 
     if (isMainTimer) {
-        // It's the main timer
+        // Main time
         if (isPaused) {
             // Resume the main timer
             isPaused = false;
@@ -39,7 +39,7 @@ function startTimer() {
             }
         }, 1000);
     } else {
-        // It's the break timer
+        // Break time
         counterContainer.style.backgroundColor = 'lightskyblue';
         if (isPaused) {
             // Resume the break timer
@@ -80,7 +80,7 @@ function setCustomTimer() {
 }
 
 function togglePause() {
-    isPaused = !isPaused; // Toggle the pause (from true to false, or false to true)
+    isPaused = !isPaused; // Toggle the pause 
     const pauseButton = document.querySelector('.pause-button');
     pauseButton.textContent = isPaused ? 'Resume' : 'Pause'; // Update button text
 }
@@ -90,7 +90,7 @@ function setCustomBreakTime() {
     if (!isNaN(inputBreakMinutes) && inputBreakMinutes >= 1) {
         breakTimer = inputBreakMinutes * 60; // Set the break timer based on user input
         if (!isMainTimer) {
-            // If it's currently the break timer, update the displayed time
+            // If currently in break timer, update the displayed time
             updateTimerDisplay(breakTimer);
         }
     }
