@@ -1,5 +1,6 @@
 let time = 600; // Set the initial time to 10 minutes (600 seconds)
 const countdown = document.getElementById('countdown');
+const timerEnd = new Audio('timerend.mp3');
 
 function startTimer() {
     const inputMinutes = parseInt(document.getElementById('minutes').value);
@@ -12,7 +13,7 @@ function startTimer() {
                 updateTimerDisplay();
             } else {
                 clearInterval(timer);
-                countdown.textContent = "Time's up!";
+                timerEnd.play();
             }
         }, 1000);
     }
