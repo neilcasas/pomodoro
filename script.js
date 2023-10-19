@@ -1,4 +1,4 @@
-let mainTimer = 600; // Set the initial main timer to 10 minutes (600 seconds)
+let mainTimer = 1800; // Set the initial main timer to 10 minutes (600 seconds)
 let breakTimer = 900; // Set the initial break timer to 15 minutes (900 seconds)
 let isMainTimer = true; // Track if it's the main timer or break timer
 const countdown = document.getElementById('countdown');
@@ -79,13 +79,13 @@ function setCustomTimer() {
 }
 
 function togglePause() {
-    isPaused = !isPaused; // Toggle the pause state (from true to false, or false to true)
+    isPaused = !isPaused; // Toggle the pause (from true to false, or false to true)
     const pauseButton = document.querySelector('.pause-button');
     pauseButton.textContent = isPaused ? 'Resume' : 'Pause'; // Update button text
 }
 
 function setCustomBreakTime() {
-    const inputBreakMinutes = parseInt(document.querySelector('break-minutes').value);
+    const inputBreakMinutes = parseInt(document.querySelector('.break-minutes').value);
     if (!isNaN(inputBreakMinutes) && inputBreakMinutes >= 1) {
         breakTimer = inputBreakMinutes * 60; // Set the break timer based on user input
         if (!isMainTimer) {
