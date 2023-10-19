@@ -1,23 +1,33 @@
 let time = 600; // Set the initial time to 10 minutes (600 seconds)
 const countdown = document.getElementById('countdown');
 const timerEnd = new Audio('timerend.mp3');
+let isPaused = true;
 
 function startTimer() {
     const inputMinutes = parseInt(document.getElementById('minutes').value);
     if (!isNaN(inputMinutes) && inputMinutes >= 1) {
-        time = inputMinutes * 60;
-        updateTimerDisplay();
+        if (isPaused) {
+            // Resume the timer
+            isPaused = false;
+        } else {
+            time = inputMinutes * 60;
+            updateTimerDisplay();
+        }
+
         const timer = setInterval(function() {
-            if (time > 0) {
-                time--;
-                updateTimerDisplay();
-            } else {
-                clearInterval(timer);
-                timerEnd.play();
+            if (!isPaused) {
+                if (time > 0) {
+                    time--;
+                    updateTimerDisplay();
+                } else {
+                    clearInterval(timer);
+                    timerEnd.play();
+                }
             }
         }, 1000);
     }
 }
+
 
 function updateTimerDisplay() {
     const minutes = Math.floor(time / 60);
@@ -31,4 +41,10 @@ function setCustomTimer() {
         time = inputMinutes * 60;
         updateTimerDisplay();
     }
+}
+
+function togglePause() {
+    isPaused = !isPaused; // Toggle the pause state (from true to false, or false to true)
+    const pauseButton = document.querySelector('.pause-button');
+    pauseButton.textContent = isPaused ? 'Resume' : 'Pause'; // Update button text
 }
