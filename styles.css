@@ -1,10 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
 .main-container {
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 100vh;
 }
+
+/* HEADER */
+
+.header {
+    font-family: monospace;
+    font-size: 72px;
+    padding: 20px;
+}
+
+/* CONTENT */ 
 
 .content {
     display: flex;
@@ -12,4 +28,18 @@
     align-items: center;
     justify-content: center;
     flex: 1;
+}
+
+.interactive-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* FOOTER */
+
+.footer {
+    font-family: monospace;
+    padding: 20px;
 }
