@@ -40,7 +40,7 @@ function startTimer() {
         }, 1000);
     } else {
         // It's the break timer
-        counterContainer.style.backgroundColor
+        counterContainer.style.backgroundColor = 'lightskyblue';
         if (isPaused) {
             // Resume the break timer
             isPaused = false;
@@ -58,6 +58,7 @@ function startTimer() {
                     timerEnd.play();
                     isMainTimer = true;
                     startButton.style.display = 'inline';
+                    counterContainer.style.backgroundColor = 'lightgoldenrodyellow';
                 }
             }
         }, 1000);
