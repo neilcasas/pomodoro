@@ -73,9 +73,11 @@ function updateTimerDisplay(timerValue) {
 
 function setCustomTimer() {
     const inputMinutes = parseInt(document.getElementById('minutes').value);
-    if (!isNaN(inputMinutes) && inputMinutes >= 1) {
+    if (!isNaN(inputMinutes) && inputMinutes >= 1 && inputMinutes <= 120) {
         mainTimer = inputMinutes * 60;
         updateTimerDisplay(mainTimer);
+    } else {
+        alert('Please enter a positive value between 1 and 120 for the main timer.');
     }
 }
 
@@ -87,12 +89,11 @@ function togglePause() {
 
 function setCustomBreakTime() {
     const inputBreakMinutes = parseInt(document.querySelector('.break-minutes').value);
-    if (!isNaN(inputBreakMinutes) && inputBreakMinutes >= 1) {
-        breakTimer = inputBreakMinutes * 60; // Set the break timer based on user input
-        if (!isMainTimer) {
-            // If currently in break timer, update the displayed time
-            updateTimerDisplay(breakTimer);
-        }
+    if (!isNaN(inputBreakMinutes) && inputBreakMinutes >= 1 && inputBreakMinutes <= 30) {
+        breakTimer = inputBreakMinutes * 60;
+        updateTimerDisplay(breakTimer);
+    } else {
+        alert('Please enter a positive value between 1 and 30 for the break timer.');
     }
 }
 
